@@ -24,9 +24,8 @@ void Pas(int n){
 }
 int main(){
     int n,r;
-    cout<<"enter no. of rows and column:";
+    cout<<"enter no. of rows:";
     cin>>n;
-    cin>>r;
     cout<<"\nThe pascal triangle:\n";
     Pas(n);
 }
