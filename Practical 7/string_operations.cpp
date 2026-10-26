@@ -1,73 +1,52 @@
-#include <iostream>
-#include <cstring>
+#include<iostream>
+#include<cstring>
 using namespace std;
 
-class String
-{
-private:
-    char* str;
 
-public:
 
-    // Default constructor
-    String()
-    {
-        str = new char[1];
-        str[0] = '\0';
+class myString{
+    private:
+    char *str;
+    public:
+
+    myString(){
+        str=new char[2];
+        str[0]='a';
+       
+       
+        str[1]='\0';
+       
+    }
+     myString(const char *ptr){
+         str=new char[strlen(ptr)+1];
+         strcpy(str,ptr);
+         
+     }
+    myString(const myString &p){
+        str=new char[strlen(p.str)+1];
+        strcpy(str,p.str);
+       
+    }
+    void accept(){
+     cout<<"enter string:";
+        cin>>str;
+    }
+    void display(){
+        cout<<"\n the string is:"<<str;
     }
 
-    // Parameterized constructor
-    String(const char* s)
-    {
-        str = new char[strlen(s) + 1];
-        strcpy(str, s);
-    }
-
-    // Copy constructor
-    String(const String& s)
-    {
-        str = new char[strlen(s.str) + 1];
-        strcpy(str, s.str);
-    }
-
-    // Accept string
-    void Accept()
-    {
-        char temp[100];
-
-        cout << "Enter string: ";
-        cin.getline(temp, 100);
-
-        delete[] str;
-
-        str = new char[strlen(temp) + 1];
-        strcpy(str, temp);
-    }
-
-    // Display string
-    void Display()
-    {
-        cout << "String: " << str << endl;
-    }
-
-    // Destructor
-    ~String()
-    {
-        delete[] str;
-    }
+~ myString(){
+    delete[]str;
+}
+ 
 };
-
-int main()
-{
-    String s1;
-    s1.Accept();
-    s1.Display();
-
-    String s2("parametrized string");
-    s2.Display();
-
-    String s3 = s2;
-    s3.Display();
-
-    return 0;
+int main(){
+    myString S1;
+    S1.accept();
+    S1.display();
+    myString S2("hello");
+    myString S3=S2;
+    S2.display();
+    S3.display();
+   return 0;
 }
