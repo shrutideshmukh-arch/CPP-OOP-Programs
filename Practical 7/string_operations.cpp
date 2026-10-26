@@ -28,7 +28,7 @@ class myString{
        
     }
     void accept(){
-     cout<<"enter string:";
+     cout<<"\nenter string:";
         cin>>str;
     }
     void display(){
@@ -42,6 +42,7 @@ class myString{
 };
 int main(){
     myString S1;
+    S1.display();
     S1.accept();
     S1.display();
     myString S2("hello");
